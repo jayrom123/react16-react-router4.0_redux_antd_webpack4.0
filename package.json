@@ -8,7 +8,7 @@
     "build": "webpack --colors  --progress --watch -p  --config ./webpack/config.build.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "roger",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -35,9 +35,9 @@
     "initialize-css": "^1.4.0",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
-    "react-redux": "^5.0.7",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
+    "react-redux": "^5.0.7",
     "redux": "^3.7.2",
     "redux-thunk": "^2.2.0"
   }
