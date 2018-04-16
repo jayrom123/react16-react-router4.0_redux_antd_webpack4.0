@@ -6,7 +6,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {turnModal} from "../redux/actions/home/actions"
+import {turnModal} from "../../redux/actions/home/actions"
 
 import {Button, Modal} from 'antd';
 
