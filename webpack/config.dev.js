@@ -13,7 +13,7 @@ const __dir = path.resolve(__dirname,"..");
 module.exports = {
   context:path.resolve(__dir,"./"),
   entry:{
-    vendor: ["jquery"],
+    vendor: [],
     build:"./src/app.jsx",
   },
   output:{

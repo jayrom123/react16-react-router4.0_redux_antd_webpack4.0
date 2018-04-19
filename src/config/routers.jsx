@@ -17,7 +17,7 @@ import Blob from "../pages/Blob.jsx";
 let Routers = (
   <BrowserRouter >
     <div>
-      <Route component={AppWrapper}/>
+
       <Switch>
         <Route path="/" exact component={Home}/>
         <Route path="/about" component={About}/>
