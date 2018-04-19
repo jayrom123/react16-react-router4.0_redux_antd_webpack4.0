@@ -29,11 +29,14 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['react', 'env'],
-            plugins: [[
-              "import", {                //antd
+            plugins: [
+              'transform-runtime',
+              require('babel-plugin-transform-object-rest-spread'),
+              ["import", {                //antd  
                 "libraryName": "antd",
                 "style": true,           // or 'css'
-              }]]
+              }]
+            ]
           }
         }
       },
