@@ -9,8 +9,7 @@ import {bindActionCreators} from "redux";
 import {turnModal} from "../../redux/actions/home/actions"
 
 import {Button, Modal} from 'antd';
-
-// import {}
+import server from '../../server/login_server/index.js'
 
 class Home extends Component {
     constructor(props) {

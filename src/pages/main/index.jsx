@@ -10,6 +10,8 @@ import Home from "../home/index.jsx";
 import About from "../about/index.jsx";
 import Blob from "../blob/index.jsx";
 
+import './index.less';
+
 let AppWrapper = function (props) {
     return (
         <div className="app-wrapper">
