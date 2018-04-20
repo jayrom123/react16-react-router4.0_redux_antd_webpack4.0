@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "antd": "^3.4.1",
+    "axios": "^0.18.0",
     "immutable": "^3.8.2",
     "initialize-css": "^1.4.0",
     "react": "^16.3.1",
