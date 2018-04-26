@@ -3,17 +3,17 @@
  */
 
 const  webpack =  require('webpack');
-const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-let ExtractTextPlugin = require('extract-text-webpack-plugin');
-let UglifyJSPlugin = require('uglifyjs-webpack-plugin');
-let CopyWebpackPlugin = require('copy-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
+const path = require('path');
 const __dir = path.resolve(__dirname,"..");
 
 module.exports = {
   context:path.resolve(__dir,"./"),
   entry:{
-    vendor: ['react'],
+    vendor: [],
     build:"./src/app.jsx",
   },
   output:{
@@ -85,20 +85,19 @@ module.exports = {
   },
   resolve:{
     alias:{
-      "__src":path.resolve(__dir,"/src/")
+      "__src":path.resolve(__dir,"./src/")
     }
   },
-  devtool:"soure-map",
+  devtool:"source-map",
   plugins:[
-    // new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('[name].css'),
+    new HtmlWebpackPlugin({
+      template: __dir + '/src/index.html'
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new ExtractTextPlugin('../css/[name].min.css'),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
-      filename: '/static/vendor-[hash].js',
-    }),
-    new HtmlWebpackPlugin({
-      template:  path.join( __dir ,"/src/index.html")
-      //template: 'index.html'
+      filename: 'vendor-[hash].min.js',
     }),
     // new UglifyJSPlugin({
     //   compress: {
@@ -108,9 +107,24 @@ module.exports = {
     //     comments: false
     //   }
     // }),
-    // 拷贝文件夹到相应目录
-    new CopyWebpackPlugin([
-      {from: __dir + '/src/static/*', to: __dir + '/dist/src/static'}
-    ]),
-  ]
+    //拷贝文件夹到相应目录
+    // new CopyWebpackPlugin([
+    //   {from: __dir + '/src/static/lib/*', to: __dir + '/dist/'}
+    // ]),
+  ],
+  devServer: {
+    proxy: {          // proxy URLs to backend development server
+      '/api': 'http://localhost:4000'
+    },
+    port: 3000,
+    open: true,
+    contentBase: './',
+    clientLogLevel: 'none',
+    disableHostCheck:true,
+    historyApiFallback:true,   //开发环境浏览器路由
+    hot: true,
+    compress:false,
+    lazy: false
+  },
 };
+

@@ -29,6 +29,7 @@ const xhr = ({method = 'get', headers, ...options}) => {
             headers = {'Content-Type': 'application/json;charset=utf-8'}
         }
     }
+
     return axiosInstance({method, headers, ...options})
         .then((response) => {
             if (response.status >= 200 && response.status < 300) {
@@ -67,7 +68,6 @@ function handleError(response) {
     const error = new Error(data.errmsg || status + '错误');
     error.response = response;
     throw error;
-
 }
 
 export default xhr;

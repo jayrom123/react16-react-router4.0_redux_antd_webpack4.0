@@ -7,7 +7,7 @@ import "./styles/index.less";
 import React from "react";
 import ReactDom from "react-dom";
 
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 import store from "./redux/store/store";
 
 import Output from './pages/index.jsx';
